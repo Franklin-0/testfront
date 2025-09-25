@@ -1,14 +1,8 @@
 html {
   scroll-behavior: smooth;
-  max-width: 100%;
-  overflow-x: hidden; /* prevent horizontal scrolling */
 }
-
-body {
+body{
   padding-top: 40px;
-  margin: 0;          /* remove default browser margin */
-  max-width: 100%;
-  overflow-x: hidden; /* prevent body from pushing sideways */
 }
 
 
