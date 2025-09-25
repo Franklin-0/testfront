@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Authenticating...</title>
+  <script src="./script.js/config.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const isNewUser = params.get('isNewUser') === 'true';
+
+      if (name && name !== 'undefined' && name !== 'null') {
+        const welcomeData = { name, isNewUser };
+        localStorage.setItem('welcomeUser', JSON.stringify(welcomeData));
+      }
+      window.location.href = `${FRONTEND_URL}/Frontend-babyshoe/index.html?login_success=true`;
+    });
+  </script>
+</head>
+<body>
+  <p>Please wait, you are being redirected...</p>
+</body>
+</html>

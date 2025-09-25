@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favourites</title>
+  <link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
+  <!-- We can reuse the shop.css styles for the product grid -->
+  <link rel="stylesheet" href="styles.css/shop.css">
+</head>
+<body>
+  <header class="product-header">
+    <a href="index.html">⬅ Back to Home</a>
+  </header>
+
+  <main id="shop">
+    <h1 class="shop-title">My Favourites</h1>
+    <div id="favourites-container" class="product-grid">
+      <!-- Favourite products will be loaded here by JS -->
+    </div>
+  </main>
+
+  <section id="recommended-products" class="shop-section" style="display: none;">
+    <!-- Recommended products slideshow will be loaded here by JS -->
+  </section>
+
+  <div id="notification-container"></div>
+
+  <script src="script.js/config.js"></script>
+  <script src="script.js/script.js"></script> 
+  <script src="script.js/product.js"></script>
+  <script src="script.js/favourites.js"></script>
+</body>
+</html>

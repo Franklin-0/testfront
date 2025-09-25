@@ -1,0 +1,331 @@
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent horizontal scrolling */
+}
+
+body {
+  padding-top: 40px;
+  margin: 0;          /* remove default browser margin */
+  max-width: 100%;
+  overflow-x: hidden; /* prevent body from pushing sideways */
+}
+
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px; /* increased for larger navbar */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: transparent;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Logo */
+.logo img {
+  height: 100px; /* bigger logo */
+  width: auto;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: none; /* hidden on mobile */
+  gap: 50px; /* increased spacing between links */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px; /* bigger font */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #0073e6;
+}
+
+/* Icons */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* increased spacing */
+  font-size: 26px; /* bigger icons */
+  cursor: pointer;
+}
+
+/* Container for each icon and its label */
+.icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.icon-label {
+  font-size: 12px; /* Small text below icon */
+  margin-top: 2px;
+}
+
+/* Cart count badge */
+.cart-count-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: #ff6f61;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid white;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Style for both span and button icons */
+.icon-link:hover {
+  color: #0073e6;
+}
+
+/* Reset button styles for icons */
+.icons button {
+  /* Needed for positioning the badge */
+  position: relative; 
+  background: none;
+  border: none;
+  font-size: inherit; /* Inherit size from .icons */
+  cursor: pointer;
+}
+/* Hamburger */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  display: block;
+  user-select: none;
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  height: 100%;
+  width: 280px;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: right 0.4s ease;
+  padding: 20px;
+  z-index: 1001;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu .close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+
+.side-menu ul {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.side-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: block;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  transition: color 0.3s;
+}
+
+.side-menu ul li a:hover {
+  color: #0073e6;
+}
+
+/* Overlay (optional for dark background when menu open) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #0073e6;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #005bb5;
+}
+
+/* Signup / Login Form Container */
+.form-container {
+  max-width: 400px;
+  margin: 60px auto;           /* center on page */
+  padding: 30px;
+  background: #fff;            /* white card */
+  border-radius: 10px;         /* rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input fields */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-bottom: 2px solid #0073e6;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.form-container input:focus {
+  border-bottom-color: #005bb5;
+}
+
+/* Submit button */
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #0073e6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover {
+  background: #005bb5;
+}
+
+/* Links below the form */
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form-links a, .back-link {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.form-links a:hover, .back-link:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+}
+
+.separator {
+  text-align: center;
+  margin: 20px 0;
+  color: #aaa;
+  font-weight: bold;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.page-links {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+/* Desktop styles */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .side-menu {
+    display: none;
+  }
+  .overlay {
+    display: none;
+  }
+  .nav-links {
+    display: flex; /* This is already here, just for context */
+  }
+
+  .logo {
+    margin-right: 50px;
+  }
+}

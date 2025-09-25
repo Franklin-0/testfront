@@ -1,0 +1,260 @@
+.back-link {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #1e90ff; /* nice blue */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 20px;
+}
+
+.back-link:hover {
+  background-color: #0c70d0; /* darker blue on hover */
+  transform: translateY(-2px); /* subtle lift effect */
+}
+
+.back-link:active {
+  transform: translateY(0);
+  background-color: #0a5fa0; /* slightly darker when clicked */
+}
+
+/* ---------- Checkout Container ---------- */
+.checkout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* ---------- Shipping & Payment Section ---------- */
+.shipping-details {
+  flex: 2;
+  min-width: 300px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.shipping-details h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 3px rgba(40,167,69,0.3);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* ---------- Payment Options ---------- */
+.payment-options {
+  margin-top: 25px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.payment-options h4 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.payment-option {
+  margin-bottom: 15px;
+}
+
+.payment-option input[type="radio"] {
+  margin-right: 10px;
+}
+
+.payment-option-details {
+  display: none;
+  margin-top: 10px;
+  padding-left: 25px;
+  font-size: 0.95rem;
+}
+
+.payment-option-details.active {
+  display: block;
+}
+
+#mpesa-phone {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ---------- Loader Text ---------- */
+.loader-text {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  margin-top: 15px;
+  display: none;
+}
+
+/* ---------- Order Summary Section ---------- */
+.order-summary {
+  flex: 1;
+  min-width: 300px;
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.order-summary h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.summary-total {
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+/* ---------- Place Order Button ---------- */
+#place-order-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.2s;
+}
+
+#place-order-btn:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+#place-order-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* ---------- Store Location Map ---------- */
+.store-location {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  width: 400px;
+  float: left; /* aligns to left */
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.store-location h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.store-location iframe {
+  width: 100%;
+  aspect-ratio: 1/1; /* keeps map square */
+  border: 0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.store-location p {
+  font-size: 0.95rem;
+  margin: 5px 0;
+  text-align: center;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.store-location p a {
+  color: #e1306c; /* Instagram pink */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.store-location p a:hover {
+  text-decoration: underline;
+}
+.insta-logo {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media screen and (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .store-location {
+    float: left; /* keep map left-aligned on mobile */
+    width: 100%;
+    max-width: 320px;
+    margin: 0 0 20px 0;
+  }
+}

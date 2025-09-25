@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Store</title>
+  <link rel="stylesheet" href="styles.css/1.css">
+  <link rel="stylesheet" href="styles.css/products.css">
+  <link rel="stylesheet" href="styles.css/shop.css">
+  <link rel="stylesheet" href="styles.css/contact.css">
+  <link rel="stylesheet" href="styles.css/about.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+  <link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
+
+</head>
+<body>
+  <div class="container">
+<!-- Navbar Section -->
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="assets/lllogo.png" alt="Logo">
+    </div>
+
+    <!-- Desktop nav links -->
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Icons -->
+    <div class="icons">
+      <div class="icon-link">
+        <a href="favourites.html" id="favourites-icon" aria-label="View favourites">❤</a>
+        <span id="favourites-count" class="cart-count-badge" style="display: none;">0</span>
+        <span class="icon-label">Favourites</span>
+      </div>
+      <div class="icon-link">
+        <button id="cart-icon" aria-label="Open cart">🛒</button>
+        <span id="cart-count" class="cart-count-badge" style="display: none;">0</span>
+        <span class="icon-label">Cart</span>
+      </div>
+      <div class="icon-link">
+        <button id="login-icon" aria-label="Login">🔑</button>
+        <span class="icon-label">Login</span>
+      </div>
+      <div id="logout-container" class="icon-link" style="display:none;">
+        <button id="logout-icon" aria-label="Logout">🚪</button>
+        <span class="icon-label">Logout</span>
+      </div>
+      <button class="hamburger" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile side menu -->
+  <div class="side-menu" id="side-menu">
+    <span class="close-btn" id="close-btn">&times;</span>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+<h1 class="hero-title">Fashionable Baby Shoes</h1>
+<p>Discover the latest sneakers designed for comfort and performance.</p>
+<p>Get quality and affordable baby shoes.</p>
+<p class="hero-slogan">From little steps to bold strides — we’ve got you covered.</p>
+
+
+      <a href="#shop" class="hero-btn">Shop Now</a>
+      </div>
+
+      <div class="hero-slideshow">
+        <div class="slide active">
+        <img src="assets/highcutsneakers.jpg" alt="Stylish high-cut sneakers for boys">
+      </div>
+      <div class="slide">
+        <img src="assets/Moccasins.jpg" alt="Brown leather moccasins for toddlers">
+      </div>
+      <div class="slide">
+        <img src="assets/sneakers.jpg" alt="Colorful unisex sneakers">
+      </div>
+    <div class="slide">
+        <img src="assets/unisex_sneaker (2).jpg" alt="White and black unisex sneakers">
+      </div>
+     <div class="slide">
+        <img src="assets/open_shoe.jpg" alt="Blue open-toed sandals for boys">
+      </div>
+      <div class="slide">
+        <img src="assets/girl_sneaker.jpg" alt="Pink and white sneakers for girls">
+      </div>
+        <div class="slide">
+        <img src="assets/toddler_sneaker.jpg" alt="Sneaker 3">
+      </div>
+        <div class="slide">
+        <img src="assets/girl_sneaker (2).jpg" alt="Sneaker 3">
+      </div>
+      
+
+      <!-- Navigation buttons -->
+      <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="container" >
+  <h1 class="shop-title">Welcome to our Shoe Store</h1>
+
+
+<!-- Boys Section -->
+<div class="category">
+  <h2>Boys Shoes</h2>
+
+  <!-- Size filter -->
+  <label for="boys-size">Filter by Size:</label>
+  <select id="boys-size">
+    <option value="all">All Sizes</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+  </select>
+
+<div class="product-grid" id="boys-products">
+  <!-- Sneaker 2 at the top -->
+  <div class="product">
+    <a href="product.html?id=1">
+      <img src="assets/sneakers (2).jpg" alt="Sneaker 2">
+      <h3>Sneaker 2</h3>
+    </a>
+    <p class="details">Sizes: 21-36 · Price: 1800 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=2">
+      <img src="assets/sneakers.jpg" alt="Sneakers">
+      <h3>Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 29-36 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=3">
+      <img src="assets/unisex_sneaker (2).jpg" alt="Unisex Sneakers">
+      <h3>Unisex Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 22-26 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=4">
+      <img src="assets/unisex_sneaker.jpg" alt="Unisex Sneakers">
+      <h3>Unisex Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 27-31 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=5">
+      <img src="assets/plain_white_sneaker.jpg" alt="Plain White Sneakers">
+      <h3>Plain White Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 27-37 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=6">
+      <img src="assets/highcutsneakers.jpg" alt="High Cut Sneakers">
+      <h3>High Cut Sneakers</h3>
+    </a>
+    <p class="details">Sizes: NULL · Price: 0</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=7">
+      <img src="assets/gumboots.jpg" alt="Gumboots">
+      <h3>Gumboots</h3>
+    </a>
+    <p class="details">Sizes: 20-33 · Price: 1000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=8">
+      <img src="assets/crabskids.jpg" alt="Crabkids">
+      <h3>Crabkids</h3>
+    </a>
+    <p class="details">Sizes: 25-36 · Price: 3500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=9">
+      <img src="assets/toddler_sneaker.jpg" alt="Toddler Sneaker">
+      <h3>Toddler Sneaker</h3>
+    </a>
+    <p class="details">Sizes: 22-26 · Price: 1500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=10">
+      <img src="assets/open_shoe.jpg" alt="Open Shoes">
+      <h3>Open Shoes</h3>
+    </a>
+    <p class="details">Sizes: 22-31 · Price: 1500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=11">
+      <img src="assets/Moccasins.jpg" alt="Moccasins">
+      <h3>Moccasins</h3>
+    </a>
+    <p class="details">Sizes: 27-37 · Price: 2500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=12">
+      <img src="assets/moccasin2.jpg" alt="Moccasins">
+      <h3>Moccasins</h3>
+    </a>
+    <p class="details">Sizes: 26-37 · Price: 2500 Ksh</p>
+  </div>
+
+  <!-- Crocs as last shoe -->
+  <div class="product">
+    <a href="product.html?id=13">
+      <img src="assets/crocs.jpg" alt="Crocs">
+      <h3>Crocs</h3>
+    </a>
+    <p class="details">Sizes: 18-23 · Price: 1000 Ksh</p>
+  </div>
+</div>
+
+</div>
+
+
+<!-- Girls Section -->
+<div class="category">
+  <h2>Girls Shoes</h2>
+
+  <!-- Size filter -->
+  <label for="girls-size">Filter by Size:</label>
+  <select id="girls-size">
+    <option value="all">All Sizes</option>
+    <option value="18">18</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="30">30</option>
+    <option value="33">33</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+  </select>
+
+<div class="product-grid" id="girls-products">
+
+  <div class="product">
+    <a href="product.html?id=15">
+      <img src="assets/unisex_sneaker.jpg" alt="Unisex Sneakers">
+      <h3>Unisex Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 27-31 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=16">
+      <img src="assets/unisex_sneaker (2).jpg" alt="Unisex Sneakers">
+      <h3>Unisex Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 22-26 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=17">
+      <img src="assets/girl_sneaker (2).jpg" alt="Sneaker 2">
+      <h3>Girl Sneaker 2</h3>
+    </a>
+    <p class="details">Sizes: 21-30 · Price: 1800 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=18">
+      <img src="assets/open_shoe.jpg" alt="Open Shoes">
+      <h3>Open Shoes</h3>
+    </a>
+    <p class="details">Sizes: 22-31 · Price: 1500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=19">
+      <img src="assets/gumboots.jpg" alt="Gumboots">
+      <h3>Gumboots</h3>
+    </a>
+    <p class="details">Sizes: 20-33 · Price: 1000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=20">
+      <img src="assets/crabkids2.jpg" alt="Crabkids 2">
+      <h3>Crabkids 2</h3>
+    </a>
+    <p class="details">Sizes: 25-36 · Price: 3500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=21">
+      <img src="assets/girl_sneaker.jpg" alt="Girl Sneakers">
+      <h3>Girl Sneakers</h3>
+    </a>
+    <p class="details">Sizes: 26-37 · Price: 2500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=22">
+      <img src="assets/Moccasins.jpg" alt="Moccasins">
+      <h3>Moccasin</h3>
+    </a>
+    <p class="details">Sizes: 27-37 · Price: 2500 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=23">
+      <img src="assets/sandals.jpg" alt="Sandals">
+      <h3>Sandals</h3>
+    </a>
+    <p class="details">Sizes: 26-36 · Price: 2000 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=24">
+      <img src="assets/doll_shoe.jpg" alt="Doll Shoes">
+      <h3>Doll Shoes</h3>
+    </a>
+    <p class="details">Sizes: 24-36 · Price: 1800 Ksh</p>
+  </div>
+
+  <div class="product">
+    <a href="product.html?id=25">
+      <img src="assets/crocs.jpg" alt="Crocs">
+      <h3>Crocs</h3>
+    </a>
+    <p class="details">Sizes: 18-23 · Price: 1000 Ksh</p>
+  </div>
+
+  <div class="product">
+  <a href="product.html?id=26">
+    <img src="assets/moccasin2.jpg" alt="Moccasin 2">
+    <h3>Moccasin 2</h3>
+  </a>
+  <p class="details">Sizes: 26-37 · Price: 2500 Ksh</p>
+</div>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+  <!-- About Us Section -->
+  <section id="about-us">
+  <div class="about-container" id="about">
+
+    <!-- Text -->
+    <div class="about-text fade-in-left">
+      <h2>About Us</h2>
+      <p>Welcome to <strong>Fashionable Baby Shoes</strong>! We provide high-quality, stylish, and comfortable shoes for kids of all ages.</p>
+      <p>Our mission is to combine comfort with fashion for the little ones.</p>
+    </div>
+
+    <!-- Image -->
+    <div class="about-image fade-in-right">
+      <img src="assets/child.png" alt="Happy children wearing our fashionable baby shoes">
+    </div>
+
+  </div>
+</section>
+  
+  <!-- Contact Section -->
+  <footer id="contact">
+  <div class="contact-container fade-in-left" >
+    <div class="contact-info-wrapper">
+      <h2>Contact Us</h2>
+      <ul class="contact-info">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:fashionablebabyshoes@gmail.com">fashionablebabyshoes@gmail.com</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fashionable_babys_shoes_llc" target="_blank">@fashionable_babys_shoes_llc</a></li>
+        <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Fashionable+baby+shoes+llc/@-1.2824396,36.8229882,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOt30PwY7hPoNDgNecmlLk4XlFp9QEIw54mQQlu!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipOt30PwY7hPoNDgNecmlLk4XlFp9QEIw54mQQlu%3Dw203-h270-k-no!7i3024!8i4032!4m7!3m6!1s0x182f1166e4e17545:0x5d9e733e127385ff!8m2!3d-1.2824887!4d36.8229491!10e5!16s%2Fg%2F11kby723f0?hl=en&entry=ttu&g_ep=EgoyMDI1MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">Nairobi, Moi Avenue, IBEA Building, Shop 04</a></li>
+        <li><i class="fa fa-phone"></i><a href="tel:0757290563">0757290563</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="contact-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.796286326462!2d36.816084!3d-1.283172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10a1b8b8b8b1%3A0xabcdef1234567890!2sIBEA%20Building%2C%20Moi%20Avenue%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1693512345678!5m2!1sen!2ske" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</footer>  
+
+</main>
+  <div id="notification-container"></div>
+  <script src="script.js/config.js"></script>
+  <script src="script.js/favourites.js"></script>
+  <script src="script.js/script.js"></script>
+  <script src="script.js/about.js" ></script>
+  <script src="script.js/shop.js" ></script>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+</body>
+
+</html>

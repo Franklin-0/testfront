@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="styles.css/1.css">
+  <link rel="stylesheet" href="styles.css/cart.css">
+  <link rel="stylesheet" href="styles.css/shop.css"> 
+  <link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
+</head>
+<body style="background-color: #f9f9f9;">
+  <header class="product-header" style="background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <a href="index.html">⬅ Continue Shopping</a>
+  </header>
+
+  <div class="cart-container" style="max-width:900px; margin:40px auto; padding:20px; background-color: #fff; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <h2>Your Cart</h2>
+    <div id="cart-items-container">
+      
+    </div>
+    <div class="cart-summary" style="margin-top: 20px; text-align: right;">
+      <h3>Total: KSh <span id="cart-total">0.00</span></h3>
+      <div class="cart-actions" style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+        <button id="clear-cart" style="padding:10px 20px; border:1px solid #dc3545; background:transparent; color:#dc3545; border-radius:5px; cursor:pointer;">Clear Cart</button>
+        <button id="checkout-btn" style="padding:10px 20px; border:none; background:#28a745; color:white; border-radius:5px; cursor:pointer;">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js/cart.js"></script>
+  <script src="script.js/config.js"></script>
+</body>
+</html>

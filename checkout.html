@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="styles.css/checkout.css">
+  <link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
+</head>
+<body>
+  <!-- ---------- Header ---------- -->
+  <header class="product-header">
+    <a href="cart.html" class="back-link">⬅ Back to Cart</a>
+  </header>
+
+  <!-- ---------- Checkout Container ---------- -->
+  <div class="checkout-container">
+    <!-- Shipping & Payment Section -->
+    <div class="shipping-details">
+      <h2>1. Shipping & Payment</h2>
+      <form id="shipping-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" required>
+          </div>
+          <div class="form-group">
+            <label for="postal-code">Postal Code</label>
+            <input type="text" id="postal-code" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="payment-options">
+          <h4>Select Payment Method</h4>
+          <div class="payment-option" id="mpesa-details">
+            <label for="mpesa-phone">M-Pesa Phone Number</label>
+            <input type="tel" id="mpesa-phone" placeholder="e.g., 254712345678" required>
+          </div>
+        </div>
+
+        <p id="loader-text" class="loader-text">
+          A payment prompt has been sent to your phone. Please enter your M-Pesa PIN to complete the transaction.
+        </p>
+      </form>
+    </div>
+
+    <!-- Order Summary Section -->
+    <div class="order-summary">
+      <h2>2. Order Summary</h2>
+      <div id="summary-items-container"></div>
+      <div class="summary-total" id="summary-total"></div>
+      <button id="place-order-btn">Place Order</button>
+    </div>
+  </div>
+
+  <!-- ---------- Store Location Map (Always at Bottom) ---------- -->
+<div class="store-location">
+  <h3>Our Store Location</h3>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.341555734175!2d36.8229491!3d-1.2824887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1166e4e17545%3A0x5d9e733e127385ff!2sFashionable%20baby%20shoes%20llc!5e0!3m2!1sen!2ske!4v1705687485071!5m2!1sen!2ske" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  <p>📞 Phone: <a href="tel:+254757290563">+254 757 290 563</a></p>
+  <p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="insta-logo">
+    <a href="https://www.instagram.com/fashionable_babys_shoes_llc/?hl=en" target="_blank">@fashionable_babys_shoes_llc</a>
+  </p>
+</div>
+
+
+
+  <!-- ---------- Scripts ---------- -->
+  <script src="script.js/config.js"></script>
+  <script src="script.js/checkout.js"></script>
+</body>
+</html>
