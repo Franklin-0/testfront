@@ -14,7 +14,9 @@
         const welcomeData = { name, isNewUser };
         localStorage.setItem('welcomeUser', JSON.stringify(welcomeData));
       }
-      window.location.href = `${FRONTEND_URL}/Frontend-babyshoe/index.html?login_success=true`;
+      // Redirect to the root of the site. This is more robust than a hardcoded path.
+      // Your web server will serve index.html from the root.
+      window.location.href = `/index.html?login_success=true`;
     });
   </script>
 </head>

@@ -1,6 +1,6 @@
 /* Shop Section */
 #shop {
-  padding: 50px 20px;
+  padding: 50px 0;
   background: #fff;
   text-align: center;
 }
@@ -52,12 +52,7 @@ select {
 .product {
   text-align: center;
   position: relative; /* Needed for positioning the favourites button */
-  background-color: #f9f9f9; /* A light background for the card */
-}
-.container {
-  max-width: 98%;   /* site won’t stretch beyond this */
-  margin: 0 auto;      /* centers on all screen sizes */
-  padding: 0 15px;     /* small padding so it doesn’t touch edges */
+  background-color: white; /* A light background for the card */
 }
 
 .product img {
@@ -473,13 +468,35 @@ select {
 }
 
 @media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* exactly 2 shoes per row */
+    column-gap: 8px;  /* small buffer between shoes */
+    row-gap: 18px;    /* vertical spacing */
+  }
+
+  .product {
+    height: auto; /* let cards grow naturally */
+  }
+
   .product img {
-    width: 110%;            
+    width: 100%;        
+    height: auto;       
+    max-height: 280px;  
+    object-fit: contain; 
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 375px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* still 2 per row */
+    column-gap: 5px;  /* very tight buffer */
+    row-gap: 15px;
+  }
+
   .product img {
-    width: 110%;            
+    max-height: 240px; 
   }
 }

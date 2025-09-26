@@ -70,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Main Payment Logic ---
-  async function handleMpesaPayment(cart) {
+  async function handleMpesaPayment(event) {
+    event.preventDefault();
+
     if (!shippingForm.checkValidity()) {
       shippingForm.reportValidity(); // Trigger browser's native validation UI
       return; // Stop if shipping details are not valid
@@ -87,13 +89,22 @@ document.addEventListener('DOMContentLoaded', () => {
     loaderText.textContent = 'Processing payment...';
     loaderText.style.color = '#555';
 
+    // --- FIX: Fetch the LATEST cart state right before payment ---
+    const cart = await fetchCart();
+    if (!cart || cart.length === 0) {
+      loaderText.textContent = 'Your cart is empty. Please add items before placing an order.';
+      loaderText.style.color = 'red';
+      placeOrderBtn.disabled = true; // Disable button as there's nothing to order
+      return;
+    }
+
     // --- FIX: Calculate the final total amount to be sent to the backend ---
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const shipping = 500; // This must match the shipping cost displayed to the user
     const totalAmount = subtotal + shipping;
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/stk-push`, {
+      const response = await fetch(`${API_BASE_URL}/api/mpesa/stk-push`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -117,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // The backend successfully told Safaricom to send the prompt.
         loaderText.textContent = result.CustomerMessage || 'STK Push sent! Check your phone to complete the payment.';
         loaderText.style.color = 'green';
-        // We don't re-enable the button immediately to prevent duplicate requests.
+        // should not re-enable the button immediately to prevent duplicate requests.
         // The user should complete the transaction or refresh if needed.
       } else {
         // Use the detailed error from the backend if available
@@ -132,11 +143,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize the page and set up the event listener
-  (async () => {
-    const cart = await initializeCheckout();
-    if (cart.length > 0) {
-      placeOrderBtn.addEventListener('click', () => handleMpesaPayment(cart));
-    }
-  })();
+  function setupPage() {
+    initializeCheckout(); // Display the summary on page load
+    placeOrderBtn.addEventListener('click', handleMpesaPayment);
+  }
 
+  setupPage();
 });

@@ -16,7 +16,6 @@ async function getAuthState() {
   authStateCache = await response.json();
   return authStateCache;
 }
-
 /**
  * Updates all favourite icons on the page to show their current state.
  * It fetches favourites from both localStorage and the server.
@@ -58,16 +57,8 @@ async function updateFavouriteIcons() {
   });
 }
 
-/**
- * Handles adding a product to favourites.
- * It first attempts to save to the server for logged-in users.
- * If the user is not logged in (401), it saves the favourite to localStorage.
- *
- * @param {string} productId - The ID of the product to add.
- * @param {string} productName - The name of the product for notifications.
- */
 async function handleAddToFavourites(productId, productName) {
-  // This function should be globally available (e.g., from script.js or product.js)
+  // This function should be globally av
   if (typeof showNotification !== "function") {
     console.error("showNotification function is not defined.");
     alert('An error occurred. Could not add to favourites.');
@@ -99,7 +90,6 @@ async function handleAddToFavourites(productId, productName) {
 
       // Avoid adding duplicates
       if (!localFavourites.find(fav => fav.id == productId)) {
-        // We need the full product details to save locally
         const productRes = await fetch(`${API_BASE_URL}/api/products/${productId}`);
         if (!productRes.ok) throw new Error('Could not fetch product details to save locally.');
 
@@ -115,9 +105,6 @@ async function handleAddToFavourites(productId, productName) {
       showNotification(`❤️ ${productName} added to local favourites!`);
     }
 
-    // --- COMMON UI UPDATE ---
-    // This runs after either the server or local save is successful.
-    // Find all buttons for this product (e.g., on main page and in slideshows) and update them.
     document.querySelectorAll(`.favourite-btn[data-id='${productId}']`).forEach(btn => {
       btn.classList.add('favourited');
     });
@@ -129,7 +116,7 @@ async function handleAddToFavourites(productId, productName) {
 }
 
 // --- LOGIC FROM my-favourites.js ---
-// This code runs only on the favourites.html page
+// This code runs only on the es.html page
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('favourites-container');
@@ -239,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Initial Icon State Update ---
-  // We call this here to ensure icons on the favourites page itself are correct
+  //called here to ensure icons on the favourites page itself are correct
   // (e.g., on the recommended products slideshow).
   updateFavouriteIcons();
 
@@ -347,10 +334,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Initial Load ---
   loadFavourites();
 });
-
-/**
- * Note: The `setupRelatedProductSlideshow` function is defined in `product.js`.
- * For this to work, we need to include `product.js` on the `favourites.html` page.
- * A better long-term solution would be to move `setupRelatedProductSlideshow`
- * into a separate utility file that can be shared across pages.
- */

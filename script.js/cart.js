@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const API_BASE_URL = 'http://localhost:3000'; // Or your production URL
   const CART_STORAGE_KEY = 'fashion_cart_v1';
 
   // --- Local Storage Helpers ---
