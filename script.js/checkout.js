@@ -51,22 +51,26 @@ document.addEventListener('DOMContentLoaded', () => {
     summaryTotalContainer.innerHTML = totalsHtml;
   }
 
-  // Fetch cart from server to display summary
-  async function initializeCheckout() {
+  // Fetches the latest cart data from the server.
+  async function fetchCart() {
     try {
       const response = await fetch(`${API_BASE_URL}/api/cart`, { credentials: 'include' });
       if (!response.ok) {
         throw new Error(`Failed to fetch cart: ${response.statusText}`);
       }
-      const cart = await response.json();
-      displayOrderSummary(cart);
-      return cart; // Return cart for other functions to use
+      return await response.json();
     } catch (error) {
-      console.error("Checkout initialization failed:", error);
+      console.error("Failed to fetch cart:", error);
       summaryItemsContainer.innerHTML = '<p class="error">Could not load your cart summary.</p>';
       placeOrderBtn.disabled = true;
       return []; // Return empty cart on error
     }
+  }
+
+  // Fetch cart from server to display summary on page load
+  async function initializeCheckout() {
+    const cart = await fetchCart();
+    displayOrderSummary(cart);
   }
 
   // --- Main Payment Logic ---
@@ -149,4 +153,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setupPage();
-});
+}); //end
