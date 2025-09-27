@@ -151,19 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
     cartItemsContainer.addEventListener('click', async (e) => {
       if (e.target.classList.contains('remove-item-btn')) {
         const id = e.target.dataset.id; // This is the cartItemId
-        const localCart = getLocalCart().filter(item => item.id !== id);
-        saveLocalCart(localCart);
-        displayCart(localCart);
 
         try {
-          const res = await fetch(`${API_BASE_URL}/api/cart`, {
+          // Wait for the server to confirm deletion before updating the UI
+          const response = await fetch(`${API_BASE_URL}/api/cart`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
             body: JSON.stringify({ cartItemId: id }),
           });
-          if (res.ok) {
-            const serverCart = await res.json();
+          if (response.ok) {
+            const serverCart = await response.json();
             displayCart(serverCart);
             saveLocalCart(serverCart);
           }
@@ -199,19 +197,23 @@ document.addEventListener('DOMContentLoaded', () => {
     clearCartBtn.addEventListener("click", async () => {
       if (!confirm("Clear cart?")) return;
       
+      // Disable the button to prevent multiple clicks
+      clearCartBtn.disabled = true;
+
       try {
-        const res = await fetch(`${API_BASE_URL}/api/cart`, {
+        const response = await fetch(`${API_BASE_URL}/api/cart`, {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
           body: JSON.stringify({}), // Send an empty body to prevent backend error
         });
-        const serverCart = await res.json(); // The server will respond with an empty array
+        const serverCart = await response.json(); // The server will respond with an empty array
         saveLocalCart(serverCart);
         displayCart(serverCart);
       } catch (err) { 
           console.error("Failed to clear cart:", err);
           showNotification('Could not clear cart on the server. Please try again.', 'error');
+          clearCartBtn.disabled = false; // Re-enable on error
       }
     });
 
