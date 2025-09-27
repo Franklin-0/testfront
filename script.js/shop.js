@@ -34,10 +34,6 @@ function setupProductButtons() {
     });
   });
 
-  // Update all favourite icons to match saved state
   updateFavouriteIcons();
 }
-
-// In production, consider using a config or router instead of hardcoding product.html
-// Run after DOM is loaded
 document.addEventListener("DOMContentLoaded", setupProductButtons);
