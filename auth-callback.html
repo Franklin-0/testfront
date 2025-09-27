@@ -2,30 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Authenticating...</title>
-  <script src="./script.js/config.js"></script>
+  <link rel="stylesheet" href="styles.css/1.css">
+  <link rel="icon" type="image/png" href="assets/apple-touch-icon.png">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+      font-family: 'Poppins', sans-serif;
+    }
+    .auth-message {
+      text-align: center;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const name = params.get('name');
-      const isNewUser = params.get('isNewUser') === 'true';
-
-      if (name && name !== 'undefined' && name !== 'null') {
-        const welcomeData = { name, isNewUser };
-        localStorage.setItem('welcomeUser', JSON.stringify(welcomeData));
-      }
-      // Redirect to the root of the site. This is more robust than a hardcoded path.
-      // Your web server will serve index.html from the root.
-      window.location.href = `/index.html?login_success=true`;
+      const messageEl = document.getElementById('message');
+      
+      messageEl.textContent = `Welcome, ${name || 'friend'}! Redirecting you now...`;
+      
+      // Wait 2 seconds before redirecting to give the user feedback.
+      setTimeout(() => { window.location.href = '/index.html?login_success=true'; }, 2000);
     });
   </script>
 </head>
 <body>
-  <p>Please wait, you are being redirected...</p>
-    <script src="script.js/config.js"></script>
-  <script src="script.js/favourites.js"></script>
-  <script src="script.js/script.js"></script>
-  <script src="script.js/about.js" ></script>
-  <script src="script.js/shop.js" ></script>
+  <div class="auth-message">
+    <h2 id="message">Authenticating, please wait...</h2>
+  </div>
 </body>
 </html>
