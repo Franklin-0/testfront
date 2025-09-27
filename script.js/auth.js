@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Google Login Button ---
+  const googleLoginBtn = document.getElementById('google-login-btn');
+  if (googleLoginBtn) {
+    googleLoginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = `${API_BASE_URL}/api/auth/google`;
+    });
+  }
+
   if (window.location.pathname.endsWith('login.html')) {
     (async function redirectIfLoggedIn() {
       try {
