@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryTotalContainer = document.getElementById('summary-total');
   const placeOrderBtn = document.getElementById('place-order-btn');
   const shippingForm = document.getElementById('shipping-form');
+  const loader = document.getElementById('loader');
   const loaderText = document.getElementById('loader-text');
+
+  // Assume API_BASE_URL is defined globally or replace with your actual URL
+  const API_BASE_URL = 'http://localhost:3000';
 
   // Helper to format currency
   const currencyFormatter = new Intl.NumberFormat('en-KE', {
@@ -90,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     placeOrderBtn.disabled = true;
     loaderText.style.display = 'block';
+    if (loader) loader.style.display = 'block';
     loaderText.textContent = 'Processing payment...';
     loaderText.style.color = '#555';
 
@@ -145,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
       placeOrderBtn.disabled = false;
     }
   }
+
 
   // Initialize the page and set up the event listener
   function setupPage() {
