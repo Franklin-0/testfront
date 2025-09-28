@@ -1,9 +1,3 @@
-0,0 @@
-/**
- * Displays a styled notification on the screen.
- * @param {string} message The message to display.
- * @param {string} [type='success'] The type of notification ('success', 'error', etc.).
- */
 export function showNotification(message, type = 'success') {
   const container = document.getElementById('notification-container');
   if (!container) {
