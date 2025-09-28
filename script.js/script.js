@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "./config.js";
 document.addEventListener('DOMContentLoaded', () => {
   // =================================================================
   // --- Constants & Local Storage Helpers ---

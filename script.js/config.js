@@ -1,6 +1,16 @@
 // config.js
-const API_BASE_URL = window.location.hostname.includes('localhost')
-  ? 'http://localhost:3000'
-  : 'https://test2-production-41f3.up.railway.app';
 
-const FRONTEND_URL = 'https://testfront2.onrender.com'; // Your primary frontend URL
+// Detect environment automatically
+const isLocalhost = window.location.hostname.includes("localhost");
+
+// Backend API base
+const API_BASE_URL = isLocalhost
+  ? "http://localhost:8080" // match the port where your backend runs locally
+  : "https://test2-production-41f3.up.railway.app";
+
+// Frontend base (mostly useful for OAuth / CORS redirects)
+const FRONTEND_URL = isLocalhost
+  ? "http://localhost:3000" // your dev frontend
+  : "https://testfront2.onrender.com";
+
+export { API_BASE_URL, FRONTEND_URL };

@@ -1,5 +1,5 @@
 let selectedSize = null; // Only one size can be selected at a time.
-
+import { API_BASE_URL } from "./config.js";
 const CART_STORAGE_KEY = 'fashion_cart_v1';
 
 function getLocalCart() {

@@ -1,5 +1,5 @@
+import { API_BASE_URL } from "./config.js";
 document.addEventListener('DOMContentLoaded', () => {
-  const API_BASE_URL = 'http://localhost:3000'; // Or your production URL
   const CART_STORAGE_KEY = 'fashion_cart_v1';
 
   // --- Local Storage Helpers ---
@@ -207,14 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
           credentials: 'include',
           body: JSON.stringify({}), // Send an empty body to prevent backend error
         });
-
-        if (response.ok) {
-          const serverCart = await response.json(); // The server will respond with an empty array
-          saveLocalCart(serverCart);
-          displayCart(serverCart);
-        } else {
-          throw new Error(`Server responded with status: ${response.status}`);
-        }
+        const serverCart = await response.json(); // The server will respond with an empty array
+        saveLocalCart(serverCart);
+        displayCart(serverCart);
       } catch (err) { 
           console.error("Failed to clear cart:", err);
           showNotification('Could not clear cart on the server. Please try again.', 'error');

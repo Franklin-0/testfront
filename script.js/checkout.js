@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "./config.js";
 document.addEventListener('DOMContentLoaded', () => {
   const summaryItemsContainer = document.getElementById('summary-items-container');
   const summaryTotalContainer = document.getElementById('summary-total');
