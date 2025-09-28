@@ -21,7 +21,7 @@ async function getAuthState() {
  * Updates all favourite icons on the page to show their current state.
  * It fetches favourites from both localStorage and the server.
  */
-async function updateFavouriteIcons() {
+export async function updateFavouriteIcons() {
   let favouriteIds = new Set();
 
   // 1. Get from localStorage
@@ -58,7 +58,7 @@ async function updateFavouriteIcons() {
   });
 }
 
-async function handleAddToFavourites(productId, productName) {
+export async function handleAddToFavourites(productId, productName) {
   // This function should be globally av
   if (typeof showNotification !== "function") {
     console.error("showNotification function is not defined.");
