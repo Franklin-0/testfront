@@ -168,12 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Try to get favourites from the server
     try {
-      const response = await fetch(`${API_BASE_URL}/api/favourites`, { credentials: 'include' });
-      if (response.ok) {
-        const serverFavourites = await response.json();
-        allFavourites.push(...serverFavourites);
-      } else if (response.status !== 401) {
-        console.error('Failed to fetch server favourites:', await response.json());
+      const authState = await getAuthState();
+      if (authState.isLoggedIn) {
+        const response = await fetch(`${API_BASE_URL}/api/favourites`, { credentials: 'include' });
+        if (response.ok) {
+          const serverFavourites = await response.json();
+          allFavourites.push(...serverFavourites);
+        } else {
+          console.error('Failed to fetch server favourites:', await response.text());
+        }
       }
     } catch (error) {
       console.error("Error fetching server favourites:", error);
