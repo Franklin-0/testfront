@@ -1,3 +1,5 @@
+import { handleAddToFavourites, updateFavouriteIcons } from './favourites.js';
+
 function setupProductButtons() {
   // Select all Add to Cart buttons from the hardcoded HTML
   const cartButtons = document.querySelectorAll(".add-to-cart");
@@ -28,9 +30,7 @@ function setupProductButtons() {
       const productId = btn.dataset.id;
       const productName = btn.dataset.name;
 
-      if (typeof handleAddToFavourites === "function") {
-        handleAddToFavourites(productId, productName);
-      }
+      handleAddToFavourites(productId, productName);
     });
   });
 

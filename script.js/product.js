@@ -1,5 +1,6 @@
 let selectedSize = null; // Only one size can be selected at a time.
 import { API_BASE_URL } from "./config.js";
+import { handleAddToFavourites, updateFavouriteIcons } from "./favourites.js";
 const CART_STORAGE_KEY = 'fashion_cart_v1';
 
 function getLocalCart() {
@@ -127,7 +128,7 @@ function renderProduct(product) {
   const favBtn = document.createElement('button');
   favBtn.className = 'add-to-favourites';
   favBtn.textContent = '❤ Add to Favourites';
-  buttonsDiv.append(addToCartBtn, buyNowBtn, favBtn);
+  buttonsDiv.append(addToCartBtn, buyNowBtn); // Favourite button is handled differently now
   purchaseDiv.append(quantityLabel, quantityInput, buttonsDiv);
 
   infoDiv.append(h1, priceP, sizesDiv, descP, purchaseDiv);
@@ -178,8 +179,7 @@ function addEventListeners(product, container) {
 
     // Add to Favourites
     if (target.classList.contains('add-to-favourites')) {
-      // Call the global function directly, ensuring product is defined.
-      window.handleAddToFavourites(product.id, product.name);
+      handleAddToFavourites(product.id, product.name);
     }
   });
 }
