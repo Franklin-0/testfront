@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gridContainer.innerHTML = products.map(p => `
       <div class="product">
+        <button class="favourite-btn" data-id="${p.id}" data-name="${p.name}">❤</button>
         <a href="product.html?id=${p.id}"><img src="${p.image_url}" alt="${p.name}"><h3>${p.name}</h3></a>
         <p>Price: KSh ${p.price}</p>
         <button class="add-to-cart" onclick="window.location.href='product.html?id=${p.id}'">View Product</button>
@@ -307,8 +308,20 @@ document.addEventListener('DOMContentLoaded', () => {
     slideshowContainer.prepend(gridContainer);
     container.appendChild(slideshowContainer);
 
-    // Initialize the slideshow logic (using the function from product.js, which needs to be available)
+    // Add event listeners to the new favourite buttons in the slideshow
+    container.querySelectorAll(".favourite-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleAddToFavourites(btn.dataset.id, btn.dataset.name);
+      });
+    });
+
+    // Initialize the slideshow logic
     setupRelatedProductSlideshow();
+
+    // Update icons to reflect current favourites status
+    updateFavouriteIcons();
   }
 
   // --- Initial Load ---
