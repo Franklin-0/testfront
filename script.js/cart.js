@@ -207,9 +207,14 @@ document.addEventListener('DOMContentLoaded', () => {
           credentials: 'include',
           body: JSON.stringify({}), // Send an empty body to prevent backend error
         });
-        const serverCart = await response.json(); // The server will respond with an empty array
-        saveLocalCart(serverCart);
-        displayCart(serverCart);
+
+        if (response.ok) {
+          const serverCart = await response.json(); // The server will respond with an empty array
+          saveLocalCart(serverCart);
+          displayCart(serverCart);
+        } else {
+          throw new Error(`Server responded with status: ${response.status}`);
+        }
       } catch (err) { 
           console.error("Failed to clear cart:", err);
           showNotification('Could not clear cart on the server. Please try again.', 'error');
