@@ -1,6 +1,5 @@
 // --- Dependency & Global State ---
 import { API_BASE_URL } from "./config.js";
-import { showNotification } from "./notifications.js";
 import { setupRelatedProductSlideshow } from "./product.js";
 if (typeof API_BASE_URL === 'undefined') {
   console.error("CRITICAL: API_BASE_URL is not defined! Favourites functionality will fail.");
@@ -8,6 +7,29 @@ if (typeof API_BASE_URL === 'undefined') {
 
 let authStateCache = null; // Cache for the user's login status
 
+/**
+ * Displays a styled notification on the screen.
+ * @param {string} message The message to display.
+ * @param {string} type The type of notification ('success', 'error', etc.).
+ */
+function showNotification(message, type = 'success') {
+  const container = document.getElementById('notification-container');
+  if (!container) {
+    console.error("Notification container not found!");
+    return;
+  }
+
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  container.appendChild(notification);
+
+  setTimeout(() => { notification.classList.add('show'); }, 10);
+  setTimeout(() => {
+    notification.classList.remove('show');
+    notification.addEventListener('transitionend', () => notification.remove());
+  }, 3000);
+}
 /**
  * Fetches the user's authentication status, using a cache to avoid redundant requests.
  * @returns {Promise<Object>} A promise that resolves to the auth state { isLoggedIn, user }.
