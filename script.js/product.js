@@ -128,7 +128,7 @@ function renderProduct(product) {
   const favBtn = document.createElement('button');
   favBtn.className = 'add-to-favourites';
   favBtn.textContent = '❤ Add to Favourites';
-  buttonsDiv.append(addToCartBtn, buyNowBtn); // Favourite button is handled differently now
+  buttonsDiv.append(addToCartBtn, buyNowBtn, favBtn);
   purchaseDiv.append(quantityLabel, quantityInput, buttonsDiv);
 
   infoDiv.append(h1, priceP, sizesDiv, descP, purchaseDiv);

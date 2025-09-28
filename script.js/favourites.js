@@ -1,5 +1,7 @@
 // --- Dependency & Global State ---
 import { API_BASE_URL } from "./config.js";
+import { showNotification } from "./notifications.js";
+import { setupRelatedProductSlideshow } from "./product.js";
 if (typeof API_BASE_URL === 'undefined') {
   console.error("CRITICAL: API_BASE_URL is not defined! Favourites functionality will fail.");
 }
@@ -59,12 +61,6 @@ export async function updateFavouriteIcons() {
 }
 
 export async function handleAddToFavourites(productId, productName) {
-  // This function should be globally av
-  if (typeof showNotification !== "function") {
-    console.error("showNotification function is not defined.");
-    alert('An error occurred. Could not add to favourites.');
-    return;
-  }
 
   try {
     const authState = await getAuthState();
@@ -294,10 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Array<Object>} products - The products to display.
    */
   function renderSlideshow(container, title, products) {
-    if (typeof setupRelatedProductSlideshow !== 'function') {
-      console.error("setupRelatedProductSlideshow is not defined. Slideshow will not be interactive.");
-    }
-
     const gridContainer = document.createElement('div');
     gridContainer.className = 'product-grid';
 
@@ -327,9 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize the slideshow logic (using the function from product.js, which needs to be available)
-    if (typeof setupRelatedProductSlideshow === 'function') {
-      setupRelatedProductSlideshow();
-    }
+    setupRelatedProductSlideshow();
   }
 
   // --- Initial Load ---
