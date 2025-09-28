@@ -1,4 +1,5 @@
 // --- Dependency & Global State ---
+import { API_BASE_URL } from "./config.js";
 if (typeof API_BASE_URL === 'undefined') {
   console.error("CRITICAL: API_BASE_URL is not defined! Favourites functionality will fail.");
 }

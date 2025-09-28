@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "./config.js";
 document.addEventListener('DOMContentLoaded', () => {
   // --- Google Login Button ---
   const googleLoginBtn = document.getElementById('google-login-btn');
