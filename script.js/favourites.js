@@ -1,5 +1,6 @@
 // --- Dependency & Global State ---
 import { API_BASE_URL } from "./config.js";
+import { setupRelatedProductSlideshow } from "./product.js";
 import { showNotification } from "./notifications.js";
 if (typeof API_BASE_URL === 'undefined') {
   console.error("CRITICAL: API_BASE_URL is not defined! Favourites functionality will fail.");
@@ -288,16 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {Array<Object>} products - The products to display.
    */
   function renderSlideshow(container, title, products) {
-    if (typeof setupRelatedProductSlideshow !== 'function') {
-      console.error("setupRelatedProductSlideshow is not defined. Slideshow will not be interactive.");
-    }
-
     const gridContainer = document.createElement('div');
     gridContainer.className = 'product-grid';
 
     gridContainer.innerHTML = products.map(p => `
       <div class="product">
-        <button class="favourite-btn" data-id="${p.id}" data-name="${p.name}">❤</button>
         <a href="product.html?id=${p.id}"><img src="${p.image_url}" alt="${p.name}"><h3>${p.name}</h3></a>
         <p>Price: KSh ${p.price}</p>
         <button class="add-to-cart" onclick="window.location.href='product.html?id=${p.id}'">View Product</button>
@@ -311,19 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
     slideshowContainer.prepend(gridContainer);
     container.appendChild(slideshowContainer);
 
-    // Add event listeners to the new favourite buttons in the slideshow
-    container.querySelectorAll(".favourite-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        handleAddToFavourites(btn.dataset.id, btn.dataset.name);
-      });
-    });
-
     // Initialize the slideshow logic (using the function from product.js, which needs to be available)
-    if (typeof setupRelatedProductSlideshow === 'function') {
-      setupRelatedProductSlideshow();
-    }
+    setupRelatedProductSlideshow();
   }
 
   // --- Initial Load ---

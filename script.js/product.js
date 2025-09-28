@@ -300,7 +300,7 @@ async function handleBuyNow(product) {
   }
 }
 
-function setupRelatedProductSlideshow() {
+export function setupRelatedProductSlideshow() {
   const container = document.querySelector('.related-slideshow-container');
   if (!container) return;
 
