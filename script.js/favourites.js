@@ -1,5 +1,6 @@
 // --- Dependency & Global State ---
 import { API_BASE_URL } from "./config.js";
+import { showNotification } from "./notifications.js";
 if (typeof API_BASE_URL === 'undefined') {
   console.error("CRITICAL: API_BASE_URL is not defined! Favourites functionality will fail.");
 }
@@ -59,13 +60,6 @@ export async function updateFavouriteIcons() {
 }
 
 export async function handleAddToFavourites(productId, productName) {
-  // This function should be globally av
-  if (typeof showNotification !== "function") {
-    console.error("showNotification function is not defined.");
-    alert('An error occurred. Could not add to favourites.');
-    return;
-  }
-
   try {
     const authState = await getAuthState();
 

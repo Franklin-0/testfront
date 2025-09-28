@@ -1,5 +1,6 @@
 let selectedSize = null; // Only one size can be selected at a time.
 import { API_BASE_URL } from "./config.js";
+import { showNotification } from "./notifications.js";
 import { handleAddToFavourites, updateFavouriteIcons } from "./favourites.js";
 const CART_STORAGE_KEY = 'fashion_cart_v1';
 
@@ -182,27 +183,6 @@ function addEventListeners(product, container) {
       handleAddToFavourites(product.id, product.name);
     }
   });
-}
-
-/**
- * Displays a styled notification on the screen.
- * @param {string} message The message to display.
- * @param {string} type The type of notification ('success', 'error', etc.).
- */
-function showNotification(message, type = 'success') {
-  const container = document.getElementById('notification-container');
-  if (!container) return; 
-
-  const notification = document.createElement('div');
-  notification.className = `notification ${type}`;
-  notification.textContent = message;
-  container.appendChild(notification);
-
-  setTimeout(() => { notification.classList.add('show'); }, 10);
-  setTimeout(() => {
-    notification.classList.remove('show');
-    notification.addEventListener('transitionend', () => notification.remove());
-  }, 3000);
 }
 
 
