@@ -1,4 +1,3 @@
-console.log("API_BASE_URL from config:", API_BASE_URL);
 import { API_BASE_URL } from "./config.js";
 document.addEventListener('DOMContentLoaded', () => {
   // --- Google Login Button ---
