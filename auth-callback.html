@@ -24,16 +24,23 @@
     }
   </style>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const name = params.get('name');
-      const messageEl = document.getElementById('message');
-      
-      messageEl.textContent = `Welcome, ${name || 'friend'}! Redirecting you now...`;
-      
-      // Wait 2 seconds before redirecting to give the user feedback.
-      setTimeout(() => { window.location.href = '/index.html?login_success=true'; }, 2000);
-    });
+      document.addEventListener('DOMContentLoaded', () => {
+          const urlParams = new URLSearchParams(window.location.search);
+          const name = urlParams.get('name');
+          const isNewUser = urlParams.get('isNewUser') === 'true';
+          const messageEl = document.getElementById('message');
+
+          if (name) {
+              // Store a flag in localStorage. The homepage script will read this.
+              localStorage.setItem('login_success', JSON.stringify({ name, isNewUser }));
+              messageEl.textContent = `Welcome, ${name}! Redirecting you now...`;
+          } else {
+              messageEl.textContent = `Welcome! Redirecting you now...`;
+          }
+
+          // Wait 2 seconds before redirecting to give the user feedback.
+          setTimeout(() => { window.location.href = 'index.html'; }, 2000);
+      });
   </script>
 </head>
 <body>
